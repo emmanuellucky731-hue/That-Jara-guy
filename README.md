@@ -5,18 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data Jarra Guy - Naija Data Hustle</title>
 <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
-    body { background:#0b141a; color:#e9edef; height:100vh; display:flex; flex-direction:column; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
+    body { background:#0b141a; color:#e9edef; min-height:100vh; display:flex; flex-direction:column; }
     header { background:#075e54; padding:14px 18px; text-align:center; font-size:1.4em; font-weight:bold; }
     .slogan { text-align:center; color:#ffd700; margin:8px 0; font-size:1em; }
     .menu, .content { padding:20px; }
     .button { background:#075e54; color:#e9edef; padding:12px; margin:8px 0; text-align:center; cursor:pointer; border-radius:8px; font-weight:bold; }
     .button:hover { background:#0a8566; }
+    .icon-button { display:flex; align-items:center; justify-content:left; gap:10px; padding:12px; margin:8px 0; border-radius:8px; cursor:pointer; background:#222; }
+    .icon-button:hover { background:#333; }
     .back { background:#ff4500; }
-    a.button { display:block; text-decoration:none; }
     h2 { color:#ffd700; margin-bottom:10px; }
     ul { margin-left:20px; margin-bottom:10px; }
     p { margin-bottom:10px; }
+    .icon { font-size:1.4em; }
+    input, textarea { width:100%; padding:8px; margin:5px 0; border-radius:6px; border:none; }
+    .comments { background:#1b2a35; padding:10px; border-radius:6px; margin-bottom:10px; }
+    .comment { background:#333; padding:8px; border-radius:6px; margin:5px 0; }
 </style>
 </head>
 <body>
@@ -26,23 +31,35 @@
 
 <div class="menu" id="main-menu">
     <p>Choose an option:</p>
-    <div class="button" onclick="showContent('buy')">1️⃣ Buy Cheap Data</div>
-    <div class="button" onclick="showContent('tips')">2️⃣ Tips to Make Your Data Last</div>
-    <div class="button" onclick="showContent('story')">3️⃣ Funny Data Story</div>
-    <div class="button" onclick="showContent('mood')">4️⃣ Billionaire / Trillionaire / Poverty / Prove Yourself</div>
-    <div class="button" onclick="showContent('updates')">5️⃣ Updates Coming Soon!</div>
+    <div class="button" onclick="showContent('choose')">1️⃣ Choose One to Know Your Input</div>
+    <div class="button" onclick="showContent('buy')">2️⃣ Buy Cheap Data</div>
+    <div class="button" onclick="showContent('tips')">3️⃣ Tips to Make Your Data Last</div>
+    <div class="button" onclick="showContent('story')">4️⃣ Funny Data Story</div>
+    <div class="button" onclick="showContent('updates')">5️⃣ Updates & Entertainment</div>
+    <div class="button" onclick="showContent('comments')">💬 Leave a Comment</div>
 </div>
 
 <div class="content" id="content-area" style="display:none;"></div>
 
 <script>
+// Store comments locally (browser memory)
+let commentsArray = [];
+
 function showContent(option){
     let content = document.getElementById('content-area');
     let menu = document.getElementById('main-menu');
     menu.style.display = 'none';
     content.style.display = 'block';
-    
-    if(option === 'buy'){
+
+    if(option === 'choose'){
+        content.innerHTML = `
+            <h2>😈😇 Choose Your Path</h2>
+            <p>Tap one icon to see your story. Think before you choose...</p>
+            <div class="icon-button" onclick="showStory('devil')"><span class="icon">😈</span> Devil Child Story</div>
+            <div class="icon-button" onclick="showStory('god')"><span class="icon">😇</span> God's Child Story</div>
+            <div class="button back" onclick="backMenu()">⬅️ Back to Menu</div>
+        `;
+    } else if(option === 'buy'){
         content.innerHTML = `
             <h2>🔥 Buy Cheap Data</h2>
             <p>Get plans starting from <strong>₦100 for 7 days</strong>! Naija Data Hustle style!</p>
@@ -71,22 +88,61 @@ function showContent(option){
             <p>Why you go gree make data dey waste your money? E better make we dey smart na! Save your data, gbe data low!</p>
             <div class="button back" onclick="backMenu()">⬅️ Back to Menu</div>
         `;
-    } else if(option === 'mood'){
-        content.innerHTML = `
-            <h2>💎 Mood Section</h2>
-            <p>💎 Billionaire: For data kings who want max plans</p>
-            <p>💸 Trillionaire: For heavy downloaders</p>
-            <p>⚠️ Poverty Skip: For beginners, small plans</p>
-            <p>✅ Prove One: Show say you sabi save and use smartly!</p>
-            <div class="button back" onclick="backMenu()">⬅️ Back to Menu</div>
-        `;
     } else if(option === 'updates'){
         content.innerHTML = `
-            <h2>🔔 Updates Coming Soon!</h2>
+            <h2>🔔 Updates & Entertainment</h2>
             <p>More cheap data hacks, tips, tricks & surprises for smart people like you. Stay tuned!</p>
+            <p>🎵 Fun entertainment: Jokes, memes & stories in Pidgin English!</p>
+            <div class="button back" onclick="backMenu()">⬅️ Back to Menu</div>
+        `;
+    } else if(option === 'comments'){
+        let commentsHTML = commentsArray.map(c => `<div class="comment">${c}</div>`).join('');
+        content.innerHTML = `
+            <h2>💬 Comments</h2>
+            <div class="comments">${commentsHTML || 'No comments yet!'}</div>
+            <input type="text" id="name" placeholder="Your Name">
+            <textarea id="message" placeholder="Write your comment"></textarea>
+            <div class="button" onclick="addComment()">Submit Comment</div>
             <div class="button back" onclick="backMenu()">⬅️ Back to Menu</div>
         `;
     }
+}
+
+function showStory(choice){
+    let content = document.getElementById('content-area');
+    if(choice === 'devil'){
+        content.innerHTML = `
+            <h2>😈 Devil Child</h2>
+            <p>Omo, if you dey follow wrong ways, dey waste money, e go hard for you later. In 80 years you go pay back all the wahala you dey cause today.</p>
+            <p>Story: One guy wey like chop data anyhow, e no dey save, e dey download tori, video, game anyhow, na so him dey lose him salary every month. E never sabi hustle. E dey cry later 😭.</p>
+            <div class="button" onclick="followUp('devil')">➡️ Next</div>
+        `;
+    } else if(choice === 'god'){
+        content.innerHTML = `
+            <h2>😇 God's Child</h2>
+            <p>If you dey smart, dey avoid sin, dey follow correct path, God go bless you. In 80 years you go make money, no suffer, live well.</p>
+            <p>Story: One girl dey save her data, dey hustle small small, dey download correct things, dey follow God advice. Na so she dey grow, get money, dey enjoy life 😎.</p>
+            <div class="button" onclick="followUp('god')">➡️ Next</div>
+        `;
+    }
+}
+
+function followUp(choice){
+    let content = document.getElementById('content-area');
+    content.innerHTML = `
+        <h2>💬 Do You Love This Story?</h2>
+        <p>${choice==='devil' ? 'You saw the truth of wrong path 😈. Are you ready to change?' : 'You saw the blessings of smart choices 😇. Ready to hustle wisely?'}</p>
+        <div class="button" onclick="backMenu()">✅ Yes, Go Back to Menu</div>
+        <div class="button" onclick="backMenu()">❌ No, Think Again</div>
+    `;
+}
+
+function addComment(){
+    let name = document.getElementById('name').value || 'Anonymous';
+    let message = document.getElementById('message').value;
+    if(message.trim() === '') return alert('Comment cannot be empty!');
+    commentsArray.push(`<strong>${name}:</strong> ${message}`);
+    showContent('comments');
 }
 
 function backMenu(){
