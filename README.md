@@ -1,305 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>That Jara Guy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<title>That Jara Guy – Premium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    h1, h2 {
-      margin-top: 20px;
-    }
-
-    .container {
-      padding: 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      background: #334155;
-    }
-
-    .icon {
-      font-size: 32px;
-    }
-
-    button {
-      margin-top: 25px;
-      padding: 10px 20px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      background: #22c55e;
-      color: #000;
-      font-weight: bold;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .story {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-      margin-top: 20px;
-    }
-  </style>
+<style>
+body{margin:0;font-family:Arial;background:#0b0b0b;color:#fff}
+header{background:#111;padding:15px;text-align:center}
+.card{background:#161616;padding:15px;border-radius:10px;margin:10px 0}
+button{padding:12px;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+.green{background:#00c853}
+.orange{background:#ff9800}
+.gray{background:#333}
+.hidden{display:none}
+</style>
 </head>
 
 <body>
-<!-- LONG SWEET ORIGINAL STORY -->
-<div id="longstory" class="container hidden">
-  <h2>📖 The Story of the Jara Heart</h2>
-  <div class="story">
-    <p>
-      Once upon a Naija morning, long before data was cheap and hustle was loud,
-      there was a young soul wey dem call **Jara Heart**. E no rich. E no famous.
-      But the fire for the chest of this young soul no be small thing.
-    </p>
-    <p>
-      Every day Jara Heart dey wake before sunrise, wash eyes, look mirror, whisper:
-      “Today I go win.” People dey laugh — na so dem laugh.  
-      But laughter no stop him ground.  
-      Na pain dem no understand, na hunger dem no carry,  
-      but that inner voice dey push am move.
-    </p>
-    <p>
-      One day Jara Heart buy data. But no be to watch TikToks, no be to cruise —
-      e buy data to learn coding, to read, to grow.  
-      E no sabi big laptop, no get big school certificate,  
-      but that one hour everyday with data + hunger + drive,  
-      turn small moves to big steps.
-    </p>
-    <p>
-      As time dey go, people wey laugh at am begin ask for help.  
-      “Teach me,” dem say.  
-      Jara Heart smile, because the same data wey dem laugh was the data wey carry am rise.
-    </p>
-    <p>
-      Today, Jara Heart no just dey survive — e dey inspire.
-      People follow am. People respect am.  
-      And every time someone ask am secret of success,  
-      Jara Heart smile and talk:
-    </p>
-    <p><em>“No be who start first, na who no stop.”</em></p>
-    <p>
-      This story no be fairy tale.  
-      Na the kind story wey dey remind us say:
-      <strong>your journey no small, your hustle matter, and your tomorrow dey depend on how you hustle today.</strong>
-    </p>
-    <p>
-      So if you dey read this moment, remember:
-      • the small steps you take today,  
-      • the lessons you learn for free,  
-      • the grind wey nobody dey notice,  
-      all of that one day go turn gold for you.
-    </p>
-    <p>
-      Keep your heart strong, keep your data productive,  
-      and never let laughter steal your focus.
-    </p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
+
+<header>
+<h2>🔥 That Jara Guy</h2>
+<p>Read • Earn • Upgrade Your Life</p>
+</header>
+
+<!-- POINTS -->
+<div class="card" style="text-align:center;color:#0f0">
+⭐ Points: <span id="points">0</span>
 </div>
+
 <!-- HOME -->
-<div id="home" class="container">
-  <h1>🔥 That Jara Guy</h1>
-  <p>Choose your path. Every choice has a story.</p>
-
-  <div class="grid">
-    <div class="card" onclick="openSection('life')">
-      <div class="icon">🧠</div>
-      <p>Life Choices</p>
-    </div>
-
-    <div class="card" onclick="openSection('hustle')">
-      <div class="icon">💼</div>
-      <p>Hustle Stories</p>
-    </div>
-
-    <div class="card" onclick="openSection('spiritual')">
-      <div class="icon">⚖️</div>
-      <p>God vs Devil</p>
-    </div>
-
-    <div class="card" onclick="openSection('entertainment')">
-      <div class="icon">🎭</div>
-      <p>Entertainment</p>
-    </div>
-
-    <div class="card" onclick="openSection('motivation')">
-      <div class="icon">🔥</div>
-      <p>Motivation</p>
-    </div>
-
-    <div class="card" onclick="openSection('naija')">
-      <div class="icon">🇳🇬</div>
-      <p>Naija Stories</p>
-    </div>
-  </div>
+<div id="home" class="card">
+<button class="orange" onclick="openSection('story')">📖 Read Story</button><br><br>
+<button class="green" onclick="openSection('leaderboard')">🏆 Leaderboard</button><br><br>
+<button class="gray" onclick="openSection('premium')">🔒 Premium Stories</button><br><br>
+<button class="green" onclick="openSection('invite')">🎁 Invite & Earn</button>
 </div>
 
-<!-- LIFE -->
-<div id="life" class="container hidden">
-  <h2>🧠 Life Choices</h2>
-  <div class="story">
-    <p>
-      Life no dey give everybody same road.  
-      Some people start with bicycle, some start trekking.  
-      But the destination no be by speed — na consistency.
-    </p>
-    <p>
-      You go choose complain or learn?  
-      Sleep or build?  
-      Follow crowd or create path?
-    </p>
-    <p><strong>Question:</strong> Are you building your future or escaping today?</p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
+<!-- STORY -->
+<div id="story" class="card hidden">
+<h3>📖 The Story of the Jara Heart</h3>
+
+<audio controls style="width:100%">
+<source src="jara-story.mp3" type="audio/mpeg">
+</audio>
+
+<p>
+Jara Heart no get much, but e get vision.  
+While others dey waste data, e dey invest am.  
+Small steps every day turn am into example.
+</p>
+
+<button class="green" onclick="earnPoints()">✅ I Read This (+10)</button><br><br>
+<button class="gray" onclick="goHome()">⬅ Back</button>
 </div>
 
-<!-- HUSTLE -->
-<div id="hustle" class="container hidden">
-  <h2>💼 Hustle Stories</h2>
-  <div class="story">
-    <p>
-      One guy dey buy data to watch cruise.  
-      Another dey buy data to learn skill.  
-      Same data, different destiny.
-    </p>
-    <p>
-      Hustle no loud.  
-      Hustle dey silent until results shout.
-    </p>
-    <p><strong>Ask yourself:</strong> Wetin your data dey do for you?</p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
+<!-- LEADERBOARD -->
+<div id="leaderboard" class="card hidden">
+<h3>🏆 Top Readers</h3>
+<ul id="leaders"></ul>
+<button class="gray" onclick="goHome()">⬅ Back</button>
 </div>
 
-<!-- GOD VS DEVIL -->
-<div id="spiritual" class="container hidden">
-  <h2>⚖️ Choose Your Side</h2>
-
-  <div class="grid">
-    <div class="card" onclick="openSection('god')">
-      <div class="icon">✨</div>
-      <p>God’s Child</p>
-    </div>
-
-    <div class="card" onclick="openSection('devil')">
-      <div class="icon">😈</div>
-      <p>Devil’s Shortcut</p>
-    </div>
-  </div>
-
-  <button onclick="goHome()">⬅ Back</button>
+<!-- PREMIUM -->
+<div id="premium" class="card hidden">
+<h3>🔒 Premium Content</h3>
+<p>Unlock at 100 points</p>
+<button class="orange" onclick="unlockPremium()">Unlock Now</button>
+<div id="premiumContent" class="hidden">
+<p>
+🔥 Premium truth: No data is wasted if it makes you wiser.
+</p>
+</div>
+<button class="gray" onclick="goHome()">⬅ Back</button>
 </div>
 
-<div id="god" class="container hidden">
-  <h2>✨ God’s Child</h2>
-  <div class="story">
-    <p>
-      God’s road no fast, but e sure.  
-      Discipline, patience, sacrifice.
-    </p>
-    <p>
-      You dey grow even when nobody dey clap for you.
-    </p>
-    <p><strong>Truth:</strong> Slow growth is still growth.</p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
+<!-- INVITE -->
+<div id="invite" class="card hidden">
+<h3>🎁 Invite & Earn</h3>
+<p>Invite link:</p>
+<input id="refLink" style="width:100%" readonly>
+<button class="green" onclick="copyLink()">Copy Link</button>
+<p>Each invite = +20 points</p>
+<button class="gray" onclick="goHome()">⬅ Back</button>
 </div>
 
-<div id="devil" class="container hidden">
-  <h2>😈 Devil’s Shortcut</h2>
-  <div class="story">
-    <p>
-      Everything quick.  
-      No process. No patience.
-    </p>
-    <p>
-      But shortcut no dey show where e end.
-    </p>
-    <p><strong>Warning:</strong> Fast money fit cost your peace.</p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
-</div>
-
-<!-- ENTERTAINMENT -->
-<div id="entertainment" class="container hidden">
-  <h2>🎭 Entertainment</h2>
-  <div class="story">
-    <p>
-      Laugh small. Life hard already.
-    </p>
-    <p>
-      But remember — enjoyment without direction fit delay destiny.
-    </p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
-</div>
-
-<!-- MOTIVATION -->
-<div id="motivation" class="container hidden">
-  <h2>🔥 Motivation</h2>
-  <div class="story">
-    <p>
-      Nobody is coming to save you.  
-      That truth can break you or build you.
-    </p>
-    <p>
-      Stand up again.
-    </p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
-</div>
-
-<!-- NAIJA -->
-<div id="naija" class="container hidden">
-  <h2>🇳🇬 Naija Stories</h2>
-  <div class="story">
-    <p>
-      Na Nigeria train champions.  
-      If you fit survive here, you fit win anywhere.
-    </p>
-  </div>
-  <button onclick="goHome()">⬅ Back</button>
-</div>
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
 <script>
-  function openSection(id) {
-    document.querySelectorAll('.container').forEach(div => {
-      div.classList.add('hidden');
-    });
-    document.getElementById(id).classList.remove('hidden');
-  }
+const firebaseConfig={
+apiKey:"AIzaSyC_ZxdFvYD-mZFy2ay586WS9dqLOaclgJw",
+authDomain:"data-jarra-guy-comment.firebaseapp.com",
+databaseURL:"https://data-jarra-guy-comment-default-rtdb.firebaseio.com",
+projectId:"data-jarra-guy-comment",
+storageBucket:"data-jarra-guy-comment.appspot.com",
+messagingSenderId:"526520697755",
+appId:"1:526520697755:web:0a211bd50a2abd2694973e"
+};
+firebase.initializeApp(firebaseConfig);
+const db=firebase.database();
 
-  function goHome() {
-    openSection('home');
-  }
+function openSection(id){
+document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+}
+function goHome(){
+document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden"));
+document.getElementById("home").classList.remove("hidden");
+}
+
+let uid=localStorage.getItem("uid");
+if(!uid){uid="u"+Math.random().toString(36).substr(2,9);localStorage.setItem("uid",uid)}
+const user=db.ref("users/"+uid);
+
+// DAILY BONUS
+let today=new Date().toDateString();
+if(localStorage.getItem("lastLogin")!==today){
+user.transaction(d=>{if(d){d.points=(d.points||0)+20}return d});
+localStorage.setItem("lastLogin",today);
+alert("🎉 Daily bonus +20 points!");
+}
+
+// LOAD USER
+user.on("value",s=>{
+if(!s.exists()){user.set({points:0})}
+document.getElementById("points").innerText=s.val().points||0;
+});
+
+// EARN
+function earnPoints(){
+user.transaction(d=>{if(d){d.points+=10}return d});
+}
+
+// LEADERBOARD
+db.ref("users").limitToLast(5).on("value",s=>{
+let html="";
+s.forEach(c=>{
+html+="<li>"+c.key+" – "+c.val().points+" pts</li>";
+});
+document.getElementById("leaders").innerHTML=html;
+});
+
+// PREMIUM
+function unlockPremium(){
+user.once("value").then(s=>{
+if((s.val().points||0)>=100){
+document.getElementById("premiumContent").classList.remove("hidden");
+}else{
+alert("❌ Need 100 points");
+}
+});
+}
+
+// INVITE
+document.getElementById("refLink").value=
+location.href+"?ref="+uid;
+
+function copyLink(){
+navigator.clipboard.writeText(refLink.value);
+alert("Copied!");
+}
+
+// REFERRAL
+const p=new URLSearchParams(location.search);
+if(p.get("ref")){
+db.ref("users/"+p.get("ref")).transaction(d=>{
+if(d){d.points+=20}
+return d;
+});
+}
 </script>
 
 </body>
