@@ -1,4 +1,12 @@
-
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff9800">
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(()=>console.log('Service Worker registered'))
+    .catch(err=>console.log('Service Worker failed:',err));
+}
+</script>
 <!DOCTYPE html
 <html lang="en">
 <head>
