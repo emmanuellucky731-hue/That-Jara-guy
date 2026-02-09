@@ -70,7 +70,60 @@
 </head>
 
 <body>
-
+<!-- LONG SWEET ORIGINAL STORY -->
+<div id="longstory" class="container hidden">
+  <h2>📖 The Story of the Jara Heart</h2>
+  <div class="story">
+    <p>
+      Once upon a Naija morning, long before data was cheap and hustle was loud,
+      there was a young soul wey dem call **Jara Heart**. E no rich. E no famous.
+      But the fire for the chest of this young soul no be small thing.
+    </p>
+    <p>
+      Every day Jara Heart dey wake before sunrise, wash eyes, look mirror, whisper:
+      “Today I go win.” People dey laugh — na so dem laugh.  
+      But laughter no stop him ground.  
+      Na pain dem no understand, na hunger dem no carry,  
+      but that inner voice dey push am move.
+    </p>
+    <p>
+      One day Jara Heart buy data. But no be to watch TikToks, no be to cruise —
+      e buy data to learn coding, to read, to grow.  
+      E no sabi big laptop, no get big school certificate,  
+      but that one hour everyday with data + hunger + drive,  
+      turn small moves to big steps.
+    </p>
+    <p>
+      As time dey go, people wey laugh at am begin ask for help.  
+      “Teach me,” dem say.  
+      Jara Heart smile, because the same data wey dem laugh was the data wey carry am rise.
+    </p>
+    <p>
+      Today, Jara Heart no just dey survive — e dey inspire.
+      People follow am. People respect am.  
+      And every time someone ask am secret of success,  
+      Jara Heart smile and talk:
+    </p>
+    <p><em>“No be who start first, na who no stop.”</em></p>
+    <p>
+      This story no be fairy tale.  
+      Na the kind story wey dey remind us say:
+      <strong>your journey no small, your hustle matter, and your tomorrow dey depend on how you hustle today.</strong>
+    </p>
+    <p>
+      So if you dey read this moment, remember:
+      • the small steps you take today,  
+      • the lessons you learn for free,  
+      • the grind wey nobody dey notice,  
+      all of that one day go turn gold for you.
+    </p>
+    <p>
+      Keep your heart strong, keep your data productive,  
+      and never let laughter steal your focus.
+    </p>
+  </div>
+  <button onclick="goHome()">⬅ Back</button>
+</div>
 <!-- HOME -->
 <div id="home" class="container">
   <h1>🔥 That Jara Guy</h1>
