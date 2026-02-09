@@ -18,7 +18,50 @@ button{padding:12px;border:none;border-radius:8px;font-size:16px;cursor:pointer}
 </head>
 
 <body>
+<!-- Watch Ad -> Earn Points -->
+<div style="margin:15px 0; text-align:center;">
+  <button id="watchAdBtn" style="padding:12px; font-size:16px; border-radius:8px; background:#ff9800; border:none; cursor:pointer;">
+    🎬 Watch Ad → Earn 5 Points
+  </button>
 
+  <!-- Simulated Ad Container -->
+  <div id="adContainer" class="hidden" style="margin-top:10px; padding:10px; background:#111; border-radius:8px;">
+    <p>Ad is playing... Please wait 10 seconds</p>
+
+    <!-- Place your Google AdSense Banner here -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin:10px 0;"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+<script>
+  const watchAdBtn = document.getElementById("watchAdBtn");
+  const adContainer = document.getElementById("adContainer");
+
+  watchAdBtn.addEventListener("click", () => {
+    // Hide button, show ad
+    watchAdBtn.style.display = "none";
+    adContainer.classList.remove("hidden");
+
+    // Wait 10 seconds to simulate ad watch
+    setTimeout(() => {
+      // Add points via Firebase
+      user.transaction(d => { if(d){d.points=(d.points||0)+5} return d; });
+
+      alert("🎉 You earned 5 points!");
+      // Hide ad, show button again
+      adContainer.classList.add("hidden");
+      watchAdBtn.style.display = "inline-block";
+    }, 10000); // 10 seconds simulated ad
+  });
+</script>
 <header>
 <h2>🔥 That Jara Guy</h2>
 <p>Read • Earn • Upgrade Your Life</p>
