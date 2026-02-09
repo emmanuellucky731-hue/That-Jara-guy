@@ -25,7 +25,27 @@ index.html<!DOCTYPE html>
 </style>
 </head>
 <body>
+<!-- Firebase SDK (COMPAT version for GitHub Pages) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyC_ZxdFvYD-mZFy2ay586WS9dqLOaclgJw",
+    authDomain: "data-jarra-guy-comment.firebaseapp.com",
+    databaseURL: "https://data-jarra-guy-comment-default-rtdb.firebaseio.com",
+    projectId: "data-jarra-guy-comment",
+    storageBucket: "data-jarra-guy-comment.firebasestorage.app",
+    messagingSenderId: "526520697755",
+    appId: "1:526520697755:web:0a211bd50a2abd2694973e"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Realtime Database reference
+  const db = firebase.database();
+</script>
 <header>Data Jarra Guy</header>
 <div class="slogan">Naija Data Hustle - Save Your Data & Gbe Data Low!</div>
 
