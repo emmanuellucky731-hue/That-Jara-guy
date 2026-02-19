@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+That-Jara-guy/            <-- ROOT
+├─ index.html             <-- The main homepage (MUST be in root)
+├─ style.css              <-- CSS styling (MUST be in root)
+├─ script.js              <-- JS for interactivity (MUST be in root)
+├─ feedback.html          <-- Optional feedback/contact page
+└─ images/                <-- Subfolder for any pictures
+     tip1.png
+     tip2.png<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
